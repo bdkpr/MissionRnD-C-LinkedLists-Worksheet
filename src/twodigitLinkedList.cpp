@@ -22,5 +22,17 @@ struct node {
 };
 
 int convert_sll_2digit_to_int(struct node *head){
-	return 0;
+	if (head==NULL)													//validity
+		return 0;
+	int res=0, num_frm_node;
+	for (; head != NULL; head = head->next){
+		if (head->digit1 >= 0 && head->digit2 >= 0){
+			num_frm_node = (head->digit1 * 10) + (head->digit2);	//extracting the number from the node
+			res = res * 100 + num_frm_node;							//storing in thr result.
+		}
+		else{
+			return 0;
+		}
+	}
+	return res;												//returning the result.
 }
